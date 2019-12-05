@@ -1,0 +1,133 @@
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<LookupTitleInfoResponse xmlns="http://schemas.sirsidynix.com/symws/standard">
+<TitleInfo>
+<titleID>9999999</titleID>
+<BibliographicInfo>
+<MarcEntryInfo>
+<label>Title</label>
+<entryID>245</entryID>
+<indicators>00</indicators>
+<text>Communications of the ACM.</text>
+<entryTypeCodes>RMT</entryTypeCodes>
+</MarcEntryInfo>
+<MarcEntryInfo>
+<label>Electronic access</label>
+<entryID>856</entryID>
+<indicators>41</indicators>
+<text>University of Alberta Access: v.1(1958)-</text>
+<unformattedText>
+|3University of Alberta Access: v.1(1958)- |uhttp://resolver.library.ualberta.ca/resolver?ctx_enc=info%3Aofi%2Fenc%3AUTF-8&ctx_ver=Z39.88-2004&rfr_id=info%3Asid%2Fualberta.ca%3Aopac&rft.genre=journal&rft.issn=0001-0782&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&url_ctx_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Actx&url_ver=Z39.88-2004
+</unformattedText>
+<entryTypeCodes>iL</entryTypeCodes>
+<url>
+http://resolver.library.ualberta.ca/resolver?ctx_enc=info%3Aofi%2Fenc%3AUTF-8&ctx_ver=Z39.88-2004&rfr_id=info%3Asid%2Fualberta.ca%3Aopac&rft.genre=journal&rft.issn=0001-0782&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&url_ctx_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Actx&url_ver=Z39.88-2004
+</url>
+</MarcEntryInfo>
+<MarcEntryInfo>
+<label>Electronic access</label>
+<entryID>856</entryID>
+<indicators>41</indicators>
+<text>Grant MacEwan University Access: v.1(1958)-</text>
+<unformattedText>
+|3Grant MacEwan University Access: v.1(1958)- |uhttp://resolver.lrc.macewan.ca/macewan?url%5Fver=Z39.88-2004&ctx%5Fver=Z39.88-2004&ctx%5Fenc=info:ofi/enc:UTF-8&rfr%5Fid=info:sid/sfxit.com:opac%5F856&url%5Fctx%5Ffmt=info:ofi/fmt:kev:mtx:ctx&sfx.ignore%5Fdate%5Fthreshold=1&rft.object%5Fid=954921332003&svc%5Fval%5Ffmt=info:ofi/fmt:kev:mtx:sch%5Fsvc&
+</unformattedText>
+<entryTypeCodes>iL</entryTypeCodes>
+<url>
+http://resolver.lrc.macewan.ca/macewan?url%5Fver=Z39.88-2004&ctx%5Fver=Z39.88-2004&ctx%5Fenc=info:ofi/enc:UTF-8&rfr%5Fid=info:sid/sfxit.com:opac%5F856&url%5Fctx%5Ffmt=info:ofi/fmt:kev:mtx:ctx&sfx.ignore%5Fdate%5Fthreshold=1&rft.object%5Fid=954921332003&svc%5Fval%5Ffmt=info:ofi/fmt:kev:mtx:sch%5Fsvc&
+</url>
+</MarcEntryInfo>
+<MarcEntryInfo>
+<label>Publication info</label>
+<entryID>260</entryID>
+<indicators></indicators>
+<text>
+New York, Association for Computing Machinery, 1958-
+</text>
+<entryTypeCodes>Y</entryTypeCodes>
+</MarcEntryInfo>
+<MarcEntryInfo>
+<label>Physical description</label>
+<entryID>300</entryID>
+<indicators></indicators>
+<text>v. ill. 28 cm.</text>
+</MarcEntryInfo>
+<MarcEntryInfo>
+<label>Former title</label>
+<entryID>247</entryID>
+<indicators>10</indicators>
+<text>
+Communications of the Association for Computing Machinery Jan. 1958-Oct. 1959
+</text>
+<entryTypeCodes>R</entryTypeCodes>
+</MarcEntryInfo>
+<MarcEntryInfo>
+<label>Subject term</label>
+<entryID>650</entryID>
+<indicators>0</indicators>
+<text>Computers--Periodicals.</text>
+<entryTypeCodes>RS</entryTypeCodes>
+</MarcEntryInfo>
+<MarcEntryInfo>
+<label>Volume/date range</label>
+<entryID>362</entryID>
+<indicators>0</indicators>
+<text>Vol. 1 (Jan. 1958)-</text>
+</MarcEntryInfo>
+<MarcEntryInfo>
+<label>Current frequency</label>
+<entryID>310</entryID>
+<indicators></indicators>
+<text>Monthly</text>
+</MarcEntryInfo>
+<MarcEntryInfo>
+<label>Other forms</label>
+<entryID>530</entryID>
+<indicators></indicators>
+<text>
+Also available online. Access restricted to authorized users and institutions.
+</text>
+</MarcEntryInfo>
+<MarcEntryInfo>
+<label>Action note</label>
+<entryID>583</entryID>
+<indicators>1</indicators>
+<text>
+Committed to retain 20120914 20221231 COPPUL SPAN AEU
+</text>
+</MarcEntryInfo>
+<MarcEntryInfo>
+<label>Added Entry-Corporate Name</label>
+<entryID>710</entryID>
+<indicators>2</indicators>
+<text>Association for Computing Machinery.</text>
+<entryTypeCodes>AR</entryTypeCodes>
+</MarcEntryInfo>
+<MarcEntryInfo>
+<label>Has supplement</label>
+<entryID>770</entryID>
+<indicators>0</indicators>
+<text>Digital computer newsletter</text>
+<entryTypeCodes>R</entryTypeCodes>
+</MarcEntryInfo>
+<MarcEntryInfo>
+<label>ISSN</label>
+<entryID>022</entryID>
+<indicators></indicators>
+<text>0001-0782</text>
+<entryTypeCodes>s</entryTypeCodes>
+</MarcEntryInfo>
+<MarcEntryInfo>
+<label>key</label>
+<entryID>001</entryID>
+<indicators></indicators>
+<text>9999999</text>
+</MarcEntryInfo>
+<MarcEntryInfo>
+<label>LCCN</label>
+<entryID>010</entryID>
+<indicators></indicators>
+<text>sc 76000456</text>
+</MarcEntryInfo>
+</BibliographicInfo>
+</TitleInfo>
+</LookupTitleInfoResponse>
