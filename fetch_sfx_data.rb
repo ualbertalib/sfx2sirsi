@@ -5,7 +5,7 @@ include ConfigModule
 
 args = get_vars('config/util.conf')
 
-sfx_data_uri = "#{args['sfx_data_path']}"
+sfx_data_uri = "#{args['sfx_data_path']}=sfxdata.xml"
 begin 
   f=File.new("#{args['data_dir']}/#{args['raw_sfx']}", "w")
 rescue
@@ -13,6 +13,7 @@ rescue
   exit
 end
 begin
+  puts sfx_data_uri
   f.puts open(sfx_data_uri).read
 rescue
   raise "#{caller}: Unable to open sfx url."

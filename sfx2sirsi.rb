@@ -13,6 +13,7 @@ class Sfx2Sirsi
 
   def initialize(options={})
     sfxfile = options[:file]
+    puts File.basename(options[:summary_holdings].path)
     summary_holdings_file = options[:summary_holdings]
     mode = options[:mode]
     @args = get_vars('config/util.conf')   
@@ -113,21 +114,21 @@ class Sfx2Sirsi
   def create_sirsi_record(sfx_object_id, issnPrint, issnElectronic)
     if @summary_holdings.has_key? sfx_object_id then # if Jeremy's script doesn't include a record, then it is skipped here.
       holdings = @summary_holdings[sfx_object_id]
-      free = "restricted" || holdings[:free]
+    #  free = "restricted" || holdings[:free]
       @sirsi_record = SirsiRecord.new({
         :object_id=>sfx_object_id,
-        :issnPrint=>issnPrint,
-        :issnElectronic=>issnElectronic,
-        :summaryHoldings => holdings[:summary_holdings],
-        :free_or_restricted=>free})
+        #:issnPrint=>issnPrint,
+        #:issnElectronic=>issnElectronic,
+        :summaryHoldings => holdings[:summary_holdings]})
+        #:free_or_restricted=>free})
     else
-      free = "restricted" || holdings[:free]
+     # free = "restricted" || holdings[:free]
       @sirsi_record = SirsiRecord.new({
         :object_id=>sfx_object_id,
-        :issnPrint=>issnPrint,
-        :issnElectronic=>issnElectronic,
-        :summaryHoldings => "Available",
-        :free_or_restricted=>free})
+        #:issnPrint=>issnPrint,
+        #:issnElectronic=>issnElectronic,
+        :summaryHoldings => "Available"})
+        #:free_or_restricted=>free})
     end
     @sirsi_record.to_s
   end

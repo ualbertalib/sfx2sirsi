@@ -18,8 +18,7 @@ class SirsiRecord
   end
 
   def to_s
-    "#{object_id}|#{issnPrint}|#{issnElectronic}|#{open_url}|#{regex_summaryHoldings}|#{related_objects?}|#{free_or_restricted}" unless summaryHoldings=="-PROBLEM RECORD-"
-    #"#{object_id}|#{open_url}|#{regex_summaryHoldings}|#{related_objects?}" unless summaryHoldings=="-PROBLEM RECORD-"
+    "#{object_id}|#{open_url}|#{regex_summaryHoldings}|#{related_objects?}" unless summaryHoldings=="-PROBLEM RECORD-"
   end
 
   private
