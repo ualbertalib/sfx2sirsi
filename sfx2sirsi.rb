@@ -32,6 +32,7 @@ class Sfx2Sirsi
     if mode=="full" || hashes_have_changed then 
       update_records(summary_holdings, mode)  # update records only if full update specified, or records have changed
     else
+      puts "records unchanged"
       exit  # do nothing if records haven't changed
     end
   end
