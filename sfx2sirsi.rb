@@ -57,8 +57,6 @@ class Sfx2Sirsi
   end
 
   def get_summary_holdings(summary_holdings)
-    puts "Summary holdings..."
-    puts summary_holdings
     @summary_holdings = eval(summary_holdings.read)
   end
 

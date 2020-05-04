@@ -21,7 +21,6 @@ task :fetch_dates do
   end  
   
    
-  sh "./sed_dates.sh"
   `bundle exec ruby clean_summary_holdings.rb data/raw_sfx1`
 end
 
@@ -55,18 +54,6 @@ task :nightly_update_only do
   run=Run.new(File.open(filename), File.open(summary_holdings), "incremental")
 end
 
-desc "Copy serials admin files to proxy/htdocs"
-task :copy_data do
-  `cp data/badissn.txt /exlibris/sfx_ver/sfx4_1/proxy/htdocs/sfx2sirsi/`
-  `cp data/holderr.txt /exlibris/sfx_ver/sfx4_1/proxy/htdocs/sfx2sirsi/`
-  `cp data/matchissn.txt /exlibris/sfx_ver/sfx4_1/proxy/htdocs/sfx2sirsi/`
-  `cp data/notSFX.txt /exlibris/sfx_ver/sfx4_1/proxy/htdocs/sfx2sirsi/`
-  `cp data/notSIR /exlibris/sfx_ver/sfx4_1/proxy/htdocs/sfx2sirsi/`
-  `cp data/summary_holdings /exlibris/sfx_ver/sfx4_1/proxy/htdocs/sfx2sirsi/`
-  `cp data/targets.txt /exlibris/sfx_ver/sfx4_1/proxy/htdocs/sfx2sirsi/`
-  `cp data/sfx-sirsi* /exlibris/sfx_ver/sfx4_1/proxy/htdocs/sfx2sirsi`
-end
-
 desc "Run all tests."
 task :tests do
   ruby "tests/config_module_test.rb"
@@ -85,5 +72,6 @@ before :full_update, :nightly_update, :full_update_only, :nightly_update_only do
 end
 
 after :full_update, :nightly_update, :full_update_only, :nightly_update_only do
+  puts "Task complete."
   File.delete "data/running" if File.exists? "data/running"
 end

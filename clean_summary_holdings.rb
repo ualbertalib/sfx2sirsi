@@ -26,7 +26,8 @@ class SummaryHoldings
   end
 
   def process_records(infile_location)
-    records = read_input_file(infile_location).split("<line>")
+    #records = read_input_file(infile_location).split("<line>")
+    records = File.open(infile_location).readlines
     records.delete_at(0)
     @records_hash = {}
     records.each do |record|
@@ -36,14 +37,14 @@ class SummaryHoldings
   end
 
   def construct_record_hash(record)
-    split_record = record.gsub("\n", "").split("^^")
-    object_id = split_record[1]
-    summary_holdings = split_record[2].gsub(" -- ", "").strip if split_record[2]
-    if split_record[3] then
-      free = "free" if split_record[3].strip == "[IS_FREE]"
-    end
+    split_record = record.split(" | ").collect(&:strip)
+    object_id = split_record.first
+    free = "free" if split_record.last == "[IS_FREE]"
+    #summary_holdings = split_record[1].gsub(" -- ", "").strip if split_record[2]
+    summary_holdings = split_record[1..-2]
     if object_id then
-      @records_hash[object_id] = {:summary_holdings=>summary_holdings, :free=>free} unless summary_holdings == " -- " #This conditional covers nil dates.
+      @records_hash[object_id] = {:summary_holdings=>summary_holdings, :free=>free} 
+#unless summary_holdings == " -- " #This conditional covers nil dates.
     end
   end
 

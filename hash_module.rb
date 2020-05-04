@@ -4,7 +4,7 @@ module HashModule
  def create_hashes
     @sfx_records.each do |record|
       sfx_object_id = record['090']['a'] if record['090']
-      puts "object_id = #{sfx_object_id}"
+      #puts "object_id = #{sfx_object_id}"
       @hash_list[sfx_object_id]=Digest::SHA1::hexdigest(record.to_s)  #create md5 hash out of each sfx record 
     end
   end
