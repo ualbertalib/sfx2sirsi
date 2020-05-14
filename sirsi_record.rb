@@ -1,9 +1,11 @@
 require 'nokogiri'
 require 'open-uri'
 require './config_module.rb'
+require './summary_holdings.rb'
 
 class SirsiRecord
 include ConfigModule
+include SummaryHoldings
 
 attr_accessor :object_id, :issnPrint, :issnElectronic, :summaryHoldings, :free_or_restricted
 
@@ -107,9 +109,7 @@ def get_catkey(issns=[])
 	end
 
 	def clean_summaryHoldings
-
-	summaryHoldings.each { |range| range.gsub!(/\(/,"",).gsub!(/\)/,"").strip! if range.include?("(") } unless summaryHoldings == "Available"
-	summaryHoldings.join(", ") unless summaryHoldings == "Available"
+          pretty_print(merge(compile(summaryHoldings)))
 	end
 	end
 
