@@ -19,7 +19,7 @@ module SummaryHoldings
   end
 
   def pp(range)  # pretty-print an individual range
-    (range.end == Time.now.year) ? endr = "present" : endr = range.end.to_s
+    (range.end == Time.now.year) ? endr = " " : endr = range.end.to_s
     range.begin.to_s+"-"+endr
   end
 
@@ -35,6 +35,8 @@ module SummaryHoldings
       }
       statement = pretty_print([range, [], nil])+pretty
     end
+    statement = range.first.to_s if (range.size == 0 and range != (0...0))
+    statement = "Available" if (range.size == 0 and range == (0...0))
     (message.nil? or message.empty?) ? statement : statement+", #{message}"
   end
 

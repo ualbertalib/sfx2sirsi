@@ -13,12 +13,12 @@ desc "Fetch summary holdings data."
 task :fetch_dates do
   
   #`curl https://web.library.ualberta.ca/batchjobs/SFX/sfx2sirsi/batch.php > data/raw_sfx1`
-  `php /home/sfxruby/threshold/sfx2sirsi/batch.php > data/raw_sfx1`
-  filesize = File.new("data/raw_sfx1").size
-  if  filesize < 500  
-  STDERR.puts("Process aborted as the data/raw_sfx1 file size is too small. size: #{filesize}");
-  exit(false)
-  end  
+  #`php /home/sfxruby/threshold/sfx2sirsi/batch.php > data/raw_sfx1`
+  #filesize = File.new("data/raw_sfx1").size
+  #if  filesize < 500  
+  #STDERR.puts("Process aborted as the data/raw_sfx1 file size is too small. size: #{filesize}");
+  #exit(false)
+  #end  
   
    
   `bundle exec ruby clean_summary_holdings.rb data/raw_sfx1`
