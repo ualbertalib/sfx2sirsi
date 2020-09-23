@@ -1,0 +1,33 @@
+sftp> cd /exlibris/sfx_ver/sfx4_1/resolver/export
+sftp> ls ec_*d.gz
+ec_08192020155337_aio0012_enhanced.MARC_d.gz                                    
+ec_08072020165710_aio0012_enhanced.MARC_d.gz                                    
+ec_07062020172533_aio0012_enhanced.MARC_d.gz                                    
+ec_07192020224119_aio0012_enhanced.MARC_d.gz                                    
+ec_07292020175841_aio0012_enhanced.MARC_d.gz                                    
+ec_08072020160501_aio0012_enhanced.MARC_d.gz                                    
+ec_07032020152407_aio0012_enhanced.MARC_d.gz                                    
+ec_07292020182911_aio0012_enhanced.MARC_d.gz                                    
+ec_08072020171442_aio0012_enhanced.MARC_d.gz                                    
+ec_07292020181309_aio0012_enhanced.MARC_d.gz                                    
+ec_08072020172907_aio0012_enhanced.MARC_d.gz                                    
+ec_08252020141612_aio0012_enhanced.MARC_d.gz                                    
+ec_08072020174447_aio0012_enhanced.MARC_d.gz                                    
+ec_08252020135133_aio0012_enhanced.MARC_d.gz                                    
+ec_08072020174515_aio0012_enhanced.MARC_d.gz                                    
+ec_08102020183341_aio0012_enhanced.MARC_d.gz                                    
+ec_08242020161935_aio0012_enhanced.MARC_d.gz                                    
+ec_08262020163806_aio0012_enhanced.MARC_d.gz                                    
+ec_08252020135847_aio0012_enhanced.MARC_d.gz                                    
+ec_08192020170044_aio0012_enhanced.MARC_d.gz                                    
+ec_08202020175541_aio0012_enhanced.MARC_d.gz                                    
+ec_08242020132036_aio0012_enhanced.MARC_d.gz                                    
+ec_09102020123149_aio0012_enhanced.MARC_d.gz                                    
+ec_08262020211048_aio0012_enhanced.MARC_d.gz                                    
+ec_09092020175221_aio0012_enhanced.MARC_d.gz                                    
+ec_08262020211540_aio0012_enhanced.MARC_d.gz                                    
+ec_08272020093228_aio0012_enhanced.MARC_d.gz                                    
+ec_08272020133925_aio0012_enhanced.MARC_d.gz                                    
+ec_09092020161353_aio0012_enhanced.MARC_d.gz                                    
+ec_09092020170515_aio0012_enhanced.MARC_d.gz                                    
+sftp> quit
