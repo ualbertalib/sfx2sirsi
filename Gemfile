@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "nokogiri", '~> 1.6.8'
+gem "nokogiri", '~> 1.11.4'
 gem "marc"
 gem "glutton_ratelimit"
 gem "rest-client"
