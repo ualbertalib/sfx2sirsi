@@ -1,0 +1,70 @@
+#!/u/sirsi/Unicorn/Bin/perl
+
+open(NM940,"noMatch940");
+open(LST022,">t022");
+
+
+while($line=<NM940>)
+  {
+  chomp($ine);
+  ($objectID,$pos23,$t022,$t035,$chk337) = split/\^/,$line;
+  #1000000000751567^o^0264-9675^656641060^e^
+  if (($pos23 eq "o" || $chk337 eq "e") && $t022 ne "")
+    {
+    print LST022 "$t022\{022\}|\n";
+    }
+  }
+
+close(LST022);
+
+system("cat t022 |seltext -oCS 2>ckeys022.log >ckeys022");
+@ckeys = `cat ckeys022 |selcatalog -iC -e022 -oCSe 2>ckeys022-022.log`;
+
+open(MATCH,">match022");
+open(NO,">noMatch022");
+open(NO2,">no022a");
+
+foreach $ckey022 (@ckeys)
+  {
+  chomp($ckey022);
+  ($ckey,$issn,$a) = split/\|/,$ckey022;
+  $issn =~ s/\{022\}//;
+  if ($a ne "")
+    { 
+    ($aOnly,$other) = split/ /,$a;
+    @lines = `grep $aOnly noMatch940`;
+    foreach $line1 (@lines)
+      {
+      chomp($line1);
+      print MATCH "$ckey|$line1\n";
+      }
+    }
+  else
+    {
+    $aOnly = "";
+    @lines3 = `grep $issn noMatch940 2>/dev/null`;
+    foreach $line3 (@lines3)
+      {
+      chomp($line3);
+      print NO2 "$line3\n";
+      }
+    }
+  }
+
+@recs0 = `grep "0 records" ckeys022.log`;
+
+foreach $line2 (@recs0)
+  {
+  chomp($line2);
+  #0 records found for #575: 1354-2699.T022.
+  $line2 =~ s/  0 records found for #.*: //;
+  $line2 =~ s/.T022.//;
+  $line2 =~ s/ //g;
+  @lines2 = `grep $line2 noMatch940 2>/dev/null`;
+  foreach $rec (@lines2)
+    {
+    chomp($rec);
+    print NO "$rec\n";
+    }
+  }
+close(NO);

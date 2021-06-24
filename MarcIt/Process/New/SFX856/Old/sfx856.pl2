@@ -1,0 +1,69 @@
+#!/u/sirsi/Unicorn/Bin/perl
+
+system("cat ckeyMatchAll | catalogdump -oF >dump 2>dump.log");
+
+open(DMP,"dump");
+open(MERGE,">merge090-856");
+$firstLine = "y";
+
+while($line=<DMP>)
+  {
+  chomp($line);
+  if ($firstLine eq "y")
+    {
+    print MERGE "*** DOCUMENT BOUNDARY ***\n";
+    print MERGE "FORM=MARC\n";
+    $firstLine = "n";
+    }
+  elsif ($line =~ /DOCUMENT BOUNDARY/)
+    {
+    if ($foundUA856 eq "n")
+      {
+      print MERGE ".856. 40|3University of Alberta Access:|$sfx856\n";
+      }
+    print MERGE ".1003. |a$ckey\n";
+    print MERGE "*** DOCUMENT BOUNDARY ***\n";
+    print MERGE "FORM=MARC\n";
+    $foundUA090 = "n";
+    $foundUA856 = "n";
+    }
+  elsif ($line =~ /^\.001\./)
+    {
+    $line =~ s/.001. \|a//;
+    $ckey = $line;
+    $sfxStuff = `grep $ckey matchAll`;
+    chomp($sfxStuff);
+    ($one,$sfx856) = split/\|/,$sfxStuff;
+
+    }
+  elsif ($line =~ /^\.090\./)
+    {
+    if ($line =~ /Internet Access|bAEU/)
+      {
+      $found090UA = "y";
+      }
+    print MERGE "$line\n";
+    }
+  elsif ($line =~ /^\.856\./)
+    {
+    if ($found090 eq "n")
+      {
+      print MERGE ".090.   |aInternet Access|bAEU\n";
+      print ".090.   |aInternet Access|bAEU\n";
+      }
+
+    if ($line =~ /University of Alberta Access/)
+      {
+      $foundUA856 = "y";
+      print MERGE ".856. 40|3University of Alberta Access:|$sfx856\n";
+      }
+    else
+      {
+      print MERGE "$line\n";
+      }
+    }
+  }
+
+print MERGE ".1003. |a$ckey\n";
+close(MERGE);
+

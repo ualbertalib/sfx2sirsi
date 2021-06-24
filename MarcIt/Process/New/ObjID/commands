@@ -1,0 +1,1 @@
+echo 6827643 |catalogdump -oF -kf >jh 2>jh.log

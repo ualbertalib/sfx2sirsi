@@ -1,0 +1,6 @@
+cp *_n.mrc ../Process/New/n.mrc
+mv *_n.mrc Done
+cp *_c.mrc ../Process/Updated/c.mrc
+mv *_c.mrc Done
+cp *_d.mrc ../Process/Deleted/d.mrc
+mv *_d.mrc Done

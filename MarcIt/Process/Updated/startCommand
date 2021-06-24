@@ -1,0 +1,1 @@
+updatedMarcIt.ksh >updatedMarcIt.log 2>&1 &

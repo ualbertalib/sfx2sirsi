@@ -1,0 +1,85 @@
+#!/u/sirsi/Unicorn/Bin/perl
+
+open(NM940,"noMatch940");
+open(RECS022,">recs022");
+open(LST022,">subs022");
+
+
+while($line=<NM940>)
+  {
+  chomp($ine);
+  ($objectID,$t022,$t035) = split/\^/,$line;
+  (@subs) = split/\|/,$t022;
+  foreach $sub (@subs)
+    {
+    chomp($sub);
+    #print "$sub|$objectID\n";
+    $sub =~ s/[a-z]//;
+    if ($sub ne "" && $sub =~ /\-/)
+      {
+      print LST022 "$sub\n";
+      print RECS022 "$sub|$objectID|$t035|\n";
+      }
+    }
+  }
+
+close(RECS022);
+close(LST022);
+
+system("sort -u recs022 >rec022u");
+system("sort -u subs022 >subs022u");
+
+@ckeys = `cat subs022u |seltext -oCS 2>ckeys022.log`;
+open(MATCH,">match022");
+open(NO,">noMatch022");
+open(NOB,">noMatch022B");
+open(DUP,">multi022");
+
+foreach $ckey022 (@ckeys)
+  {
+  chomp($ckey022);
+  ($ckey,$issn) = split/\|/,$ckey022;
+  @lines = `grep $issn rec022u`;
+  foreach $line1 (@lines)
+    {
+    chomp($line1);
+    $num = @lines;
+    if ($num == 1)
+      {
+      print MATCH "$ckey|$line1\n";
+      }
+    elsif ($num > 1)
+      {
+      print DUP "$ckey|$line1${num}|\n";
+      #@lines2 = `grep $line1 rec022u 2>/dev/null`;
+      foreach $rec (@lines)
+        {
+        chomp($rec);
+        print NO "$rec\n";
+        }
+      }      
+    else
+      {
+      #print NO "$line1\n";
+      }
+    }
+  }
+
+@recs0 = `grep "0 records" ckeys022.log`;
+
+foreach $line2 (@recs0)
+  {
+  chomp($line2);
+  $line2 =~ s/0 records found for #.*: //;
+  $line2 =~ s/ //g;
+  @lines2 = `grep $line2 rec022u 2>/dev/null`;
+  foreach $rec (@lines2)
+    {
+    chomp($rec);
+    print NOB "$rec\n";
+    }
+  }
+close(NO);
+close(NOB);
+system("sort -u noMatch022 >noMatch022u");
+system("sort -u noMatch022B >noMatch022Bu");

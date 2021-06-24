@@ -1,0 +1,126 @@
+#!/u/sirsi/Unicorn/Bin/perl
+
+system("cp abiform.txt new");
+system("echo num=000 >>new");
+open(TAG,"new") || die "Can't open new: $!";
+open(RECS,">records");
+open(LST,">objID940");
+$firstRec = "y";
+
+while ($line=<TAG>)
+  {
+  chomp($line);
+  if ($line =~ /num=000/)
+    {
+    #num=000   as a0n a
+    if ($firstRec eq "y")
+      {
+      $firstRec = "n";
+      }
+    else
+      {
+      print LST "$objectID\{940\}\n";
+      print RECS "$objectID^$t022^@t035^$ldr17^$startDate^$endDate^$t856^\n";
+      $objectID = "";
+      $t022 = "";
+      @t035 = "";
+      $ldr17 = "";
+      $startDate = "";
+      $endDate = "";
+      $t856 = "";
+      }
+    }
+  elsif ($line =~ /num=008/)
+    {
+    $line =~ s/num=008   //;
+    $startDate = substr($line,7,4);
+    $endDate = substr($line,11,4);
+    $ldr17 = substr($line,17,1);
+    #print "$pos23\n";
+    }
+  elsif ($line =~ /num=022/)
+    {
+    # match on $a only of marcIt and symphony
+    #num=022   |l1350-7192
+    $t022 = $line;
+    #$t022 =~ s/num=022   //;
+    #$t022 =~ s/num=022 . //;
+    $t022 =~ s/num=022...//;
+    if ($t022 =~ /^\|/)
+      {
+      $t022 = "";
+      }
+    elsif ($t022 !~ /^[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9,X]/)
+      {
+      $t022 = "";
+      }
+    else
+      {
+      ($t022a,$junk) = split/\|/,$t022;
+      $t022 = $t022a;
+      }
+      #print "$t022\n";a
+    }
+  elsif ($line =~ /num=035/)
+    {
+    $t035 = $line;
+    $t035 =~ s/num=035//;
+    $t035 =~ s/   \(OCoLC\)//;
+    push(@t035,$t035);
+    #foreach $t035 (@t035)
+    #  {
+    #  print "$t035\n";
+    #  }
+    }
+  elsif ($line =~ /num=090/)
+    {
+    #num=090   4940000000140202
+    $t090 = $line;
+    $t090 =~ s/num=090   //;
+    } 
+  elsif ($line =~ /num=856/)
+    {
+    #num=856 40
+    $line =~ s/num=856 40//;
+    ($stuff,$sub3,$t856) = split/\|/,$line;
+    $t856 =~ s/^u//;
+    #print "$t856\n";
+    }
+  elsif ($line =~ /num=866/)
+    {
+    #num=866   A
+    $line =~ s/num=866   //;
+    ($t866,$stuff) = split/\|/,$line;
+    print "$t866\n";
+    $t866 =~ s:/[0-9][0-9]/[0-9][0-9]::g;
+    $t866 =~ s/Available from //g; 
+    if ($t866 =~ /Most/)
+      {
+      $t866 =~ s/\./- ,/;
+      }
+    elsif ($t866 =~ /until/)
+      {
+      $t866 =~ s/ until /-/g;
+      $t866 =~ s/\.//g;
+      }
+    else
+      {
+      $t866 =~ s/\./-/g;
+      }
+    print "$t866\n";
+    }
+  elsif ($line =~ /num=940/)
+    {
+    #num=940   954921384850
+    $objectID = $line;
+    $objectID =~ s/num=940   //;
+    #print "$t940\n";
+    }    
+  else
+    {
+    #print "unknown line\n";
+    }
+  }
+close(RECS);
+close(LST);
+close(TAG);

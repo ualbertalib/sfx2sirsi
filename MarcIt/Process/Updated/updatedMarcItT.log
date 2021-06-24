@@ -1,0 +1,11 @@
+Tue Jun  8 12:43:51 MDT 2021
+Symphony marc print 3.6.0 started on Tuesday, June 8, 2021, 12:43 PM
+  MARC records will be read from standard input.
+  The following tags will be printed: 
+   000 940
+  7689 marcin record(s) read.
+  7689 marc record(s) read.
+  0 marc record(s) in error.
+  7689 marc record(s) printed.
+Symphony marc print finished on Tuesday, June 8, 2021, 12:43 PM
+Tue Jun  8 12:44:40 MDT 2021

@@ -1,0 +1,1 @@
+cat ckeys2Upgrade | catalogdump -oF -kf >upgrade.mrc 2>upgrade.mrc.log

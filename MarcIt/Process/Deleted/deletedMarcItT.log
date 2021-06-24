@@ -1,0 +1,51 @@
+Mon Jun  7 14:39:44 MDT 2021
+Symphony marc print 3.6.0 started on Monday, June 7, 2021, 2:39 PM
+  MARC records will be read from standard input.
+  The following tags will be printed: 
+   000 940
+  196 marcin record(s) read.
+  196 marc record(s) read.
+  0 marc record(s) in error.
+  196 marc record(s) printed.
+Symphony marc print finished on Monday, June 7, 2021, 2:39 PM
+Symphony Catalog dump 3.6.0 started on Monday, June 7, 2021, 2:39 PM
+  The catalog key will be read from standard input.
+  Holdings will be output in tag 999.
+  Flat records will be written to standard output.
+  Internal subfields ? and = tag list will NOT be included in exported records.
+  The bibliographic MARC records will be written.
+  96 catalog record(s) printed.
+  96 bibliographic MARC record(s) printed.
+  111 item record(s) printed.
+Symphony Catalog dump finished on Monday, June 7, 2021, 2:39 PM
+Symphony edit MARC 3.6.0 started on Monday, June 7, 2021, 2:39 PM
+  The catalog key will be read from standard input.
+  Edit commands will be read from rem856.txt.
+  Only the bibliographic MARC record will be processed.
+  Catalog and MARC records will NOT be updated.
+  Selected catalog keys will be written to standard output.
+  94 catalog record(s) read.
+  94 MARC record(s) read.
+  94 tag(s) found.
+  0 tag(s) would have been modified.
+  0 tag(s) would have been replaced.
+  94 tag(s) would have been deleted.
+  94 bibliographic MARC record(s) found.
+  94 bibliographic MARC record(s) would have been modified.
+Symphony edit MARC finished on Monday, June 7, 2021, 2:39 PM
+Symphony edit MARC 3.6.0 started on Monday, June 7, 2021, 2:39 PM
+  The catalog key will be read from standard input.
+  Edit commands will be read from rem090.txt.
+  Only the bibliographic MARC record will be processed.
+  Catalog and MARC records will NOT be updated.
+  Selected catalog keys will be written to standard output.
+  94 catalog record(s) read.
+  94 MARC record(s) read.
+  109 tag(s) found.
+  0 tag(s) would have been modified.
+  0 tag(s) would have been replaced.
+  109 tag(s) would have been deleted.
+  94 bibliographic MARC record(s) found.
+  94 bibliographic MARC record(s) would have been modified.
+Symphony edit MARC finished on Monday, June 7, 2021, 2:39 PM
+Mon Jun  7 14:39:47 MDT 2021

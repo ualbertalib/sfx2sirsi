@@ -1,0 +1,118 @@
+#!/u/sirsi/Unicorn/Bin/perl
+
+system("cp other.txt new");
+system("echo num=000 >>new");
+open(TAG,"new") || die "Can't open new: $!";
+open(RECS,">records");
+open(LST,">objID940");
+$firstRec = "y";
+
+while ($line=<TAG>)
+  {
+  chomp($line);
+  if ($line =~ /num=000/)
+    {
+    #num=000   as a0n a
+    if ($firstRec eq "y")
+      {
+      $firstRec = "n";
+      }
+    else
+      {
+      print LST "$objectID\{940\}\n";
+      print RECS "$objectID^$pos23^$t022^$t035^$chk337^\n";
+      $objectID = "";
+      $pos23 = "";
+      $t022 = "";
+      $t035 = "";
+      $chk337 = "";
+      #print RECS "$objectID^$t022^$t035^$t866^$startDate|$endDate^\n";
+      #print REC "$catkey^$objectID^$t856^$t866^$startDate|$endDate^\n";
+      }
+    }
+  elsif ($line =~ /num=008/)
+    {
+    $line =~ s/num=008   //;
+    $startDate = substr($line,17,4);
+    $endDate = substr($line,21,4);
+    $pos23 = substr($line,23,1);
+    #print "$pos23\n";
+    }
+  elsif ($line =~ /num=022/)
+    {
+    # match on $a only of marcIt and symphony
+    #num=022   |l1350-7192
+    $t022 = $line;
+    #$t022 =~ s/num=022   //;
+    $t022 =~ s/num=022 . //;
+    if ($t022 =~ /^\|/)
+      {
+      $t022 = "";
+      }
+    elsif ($t022 !~ /^[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9,X]/)
+      {
+      $t022 = "";
+      }
+    else
+      {
+      ($t022a,$junk) = split/\|/,$t022;
+      $t022 = $t022a;
+      }
+      #print "$t022\n";a
+    }
+  elsif ($line =~ /num=035/)
+    {
+    $t035 = $line;
+    $t035 =~ s/num=035//;
+    $t035 =~ s/   \(OCoLC\)//;
+    #$t035 =~ s/num=035   (OCoLC)//;
+    #print "$t035\n";
+    }
+  elsif ($line =~ /num=090/)
+    {
+    #num=090   4940000000140202
+    $t090 = $line;
+    $t090 =~ s/num=090   //;
+    } 
+  elsif ($line =~ /num=337/)
+    {
+    #num=337   computer|bc|2rdamedia
+    if ($line =~ /computer/)
+      {
+      $chk337 = "e";
+      }
+    else
+      {
+      $chk337 = "p";
+      }
+    #print "$chk337\n";
+    }
+  elsif ($line =~ /num=856/)
+    {
+    #num=856 40
+    $t856 = $line;
+    $t856 =~ s/num=856 40//;
+    #print "$t856\n";
+    }
+  elsif ($line =~ /num=866/)
+    {
+    #num=866   A
+    $t866 = $line;
+    $t866 =~ s/num=866   //;
+    #print "$t866\n";
+    }
+  elsif ($line =~ /num=940/)
+    {
+    #num=940   954921384850
+    $objectID = $line;
+    $objectID =~ s/num=940   //;
+    #print "$t940\n";
+    }    
+  else
+    {
+    #print "unknown line\n";
+    }
+  }
+close(RECS);
+close(LST);
+close(TAG);

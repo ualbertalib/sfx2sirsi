@@ -1,0 +1,24 @@
+*** DOCUMENT BOUNDARY ***
+FORM=SERIAL
+.000. |aasz 0n a
+.001. |a8707454
+.003. |aCaAEU
+.005. |a00000000000000.0
+.006. |am        d
+.007. |acr mnu
+.008. |a190806uuuuuuuuuxx uu | o    u|    |eng d
+.035.   |aon1117655538
+.090.   |aInternet Access|bAEGMCT
+.090.   |aInternet Access|bAEU
+.130. 0 |aAdvances in Biomarker Sciences and Technology (Online)
+.245. 10|aAdvances in Biomarker Sciences and Technology|h[electronic resource]
+.260.   |bElsevier
+.337.   |acomputer|bc|2rdamedia
+.338.   |aonline resource|bcr|2rdacarrier
+.506.   |aAccess restricted to authorized users and institutions.
+.596.   |a44 57
+.776.   |tAdvances in Biomarker Sciences and Technology
+.856. 40|3MacEwan University Access: v.1(2019)-|uhttp://resolver.macewan.ca/macewan?url%5Fver=Z39.88-2004&ctx%5Fver=Z39.88-2004&ctx%5Fenc=info:ofi/enc:UTF-8&rfr%5Fid=info:sid/sfxit.com:opac%5F856&url%5Fctx%5Ffmt=info:ofi/fmt:kev:mtx:ctx&sfx.ignore%5Fdate%5Fthreshold=1&rft.object%5Fid=4100000008520848&svc%5Fval%5Ffmt=info:ofi/fmt:kev:mtx:sch%5Fsvc&
+.856. 40|3University of Alberta Access: Available |uhttps://resolver.library.ualberta.ca/resolver?ctx_enc=info%3Aofi%2Fenc%3AUTF-8&ctx_ver=Z39.88-2004&rfr_id=info%3Asid%2Fualberta.ca%3Aopac&rft.genre=journal&rft.object_id=4100000008520848&rft.issn=&rft.eissn=&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&url_ctx_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Actx&url_ver=Z39.88-2004
+.940.   |a4100000008520848
+.949.   |aInternet Access|wLCPER|mGR_MAC_INT|kINTERNET|lINTERNET|rN|sY|tE-RESOURCE|xE-JOURNAL|zMACEWANSFX

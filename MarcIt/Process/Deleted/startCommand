@@ -1,0 +1,1 @@
+deletedMarcIt.ksh >deletedMarcIt.log 2>&1 &

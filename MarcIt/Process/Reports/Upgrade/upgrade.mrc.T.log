@@ -1,0 +1,10 @@
+Symphony Catalog dump 3.6.0 started on Wednesday, June 23, 2021, 11:20 AM
+  The catalog key will be read from standard input.
+  The flexible key will be output in 001.
+  MARC records will be written to standard output.
+  Internal subfields ? and = tag list will NOT be included in exported records.
+  The bibliographic MARC records will be written.
+  1930 catalog record(s) printed.
+  1930 bibliographic MARC record(s) printed.
+  0 item record(s) printed.
+Symphony Catalog dump finished on Wednesday, June 23, 2021, 11:20 AM

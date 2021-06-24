@@ -1,0 +1,2 @@
+echo 5424276 |editmarc -frem856.txt >key 2>key.log
+echo 6829446 | editmarc -frem090.txt >key2 2>key2.log

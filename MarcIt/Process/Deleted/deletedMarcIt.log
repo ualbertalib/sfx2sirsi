@@ -1,0 +1,51 @@
+Mon Jun  7 14:39:44 MDT 2021
+Symphony $<marc> $<print> 3.6.0 $<started_on> $<monday:u>, $<june:u> 7, 2021, 2:39 PM
+$(11178)
+$(11323)
+   000 940
+  196 $<marcin> $(1402)
+  196 $<marc> $(1402)
+  0 $<marc> $(1403)
+  196 $<marc> $(1303)
+Symphony $<marc> $<print> $<finished_on> $<monday:u>, $<june:u> 7, 2021, 2:39 PM
+Symphony $<catalog:u> $<dump> 3.6.0 $<started_on> $<monday:u>, $<june:u> 7, 2021, 2:39 PM
+$(1222)
+$(3395)999.
+$(3363)
+$(3398)
+$(3394)
+  96 $<catalog> $(1303)
+  96 $<bib> $<MARC> $(1303)
+  111 $<item> $(1303)
+Symphony $<catalog:u> $<dump> $<finished_on> $<monday:u>, $<june:u> 7, 2021, 2:39 PM
+Symphony $<edit> $<MARC> 3.6.0 $<started_on> $<monday:u>, $<june:u> 7, 2021, 2:39 PM
+$(1222)
+$(11385)rem856.txt.
+$(11389)
+$(11206)
+$(11185)
+  94 $<catalog> $(1402)
+  94 $<MARC> $(1402)
+  94 $(1425)
+  0 $(11381)
+  0 $(11382)
+  94 $(11383)
+  94 $<bib> $<MARC> $(1416)
+  94 $<bib> $<MARC> $(1454)
+Symphony $<edit> $<MARC> $<finished_on> $<monday:u>, $<june:u> 7, 2021, 2:39 PM
+Symphony $<edit> $<MARC> 3.6.0 $<started_on> $<monday:u>, $<june:u> 7, 2021, 2:39 PM
+$(1222)
+$(11385)rem090.txt.
+$(11389)
+$(11206)
+$(11185)
+  94 $<catalog> $(1402)
+  94 $<MARC> $(1402)
+  109 $(1425)
+  0 $(11381)
+  0 $(11382)
+  109 $(11383)
+  94 $<bib> $<MARC> $(1416)
+  94 $<bib> $<MARC> $(1454)
+Symphony $<edit> $<MARC> $<finished_on> $<monday:u>, $<june:u> 7, 2021, 2:39 PM
+Mon Jun  7 14:39:47 MDT 2021

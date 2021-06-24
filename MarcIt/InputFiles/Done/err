@@ -1,0 +1,16 @@
+From this file I was able to find one record that should be reported as upgraded. A successful run should identify this title:
+
+Object ID 4100000008520848 (Sirsi record is encoding level z, MarcIt is encoding level blank)
+
+EditedUALMarcIt-ec_04152021153002_aio0012_enhanced_n.mrc
+
+num=000   as i0n a
+num=008   190726c20199999ne kx p o     0   a0eng c
+num=022 0 2543-1064|l2543-1064|2j
+num=035   (OCoLC)1111660971
+num=245 00Advances in biomarker sciences and technology.
+num=337   computer|bc|2rdamedia
+num=856 40|3University of Alberta Access|uhttps://resolver.library.ualberta.ca/resolver?url%5Fver=Z39.88-2004&ctx%5Fver=Z39.88-2004&ctx%5Fenc=info:ofi/enc:UTF-8&rfr%5Fid=info:sid/sfxit.com:opac%5F856&url%5Fctx%5Ffmt=info:ofi/fmt:kev:mtx:ctx&sfx.ignore%5Fdate%5Fthreshold=1&rft.object%5Fid=4100000008520848&svc%5Fval%5Ffmt=info:ofi/fmt:kev:mtx:sch%5Fsvc&
+num=940   4100000008520848
+
+

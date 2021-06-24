@@ -1,0 +1,152 @@
+#!/u/sirsi/Unicorn/Bin/perl
+
+open(NM940,"noMatch940");
+open(LST022,">t022");
+open(NOIt,">noISSNit");
+open(NO,">noMatch022");
+open(FIND_REC, ">noFindrec");
+while($line=<NM940>)
+  {
+  chomp($line);
+  ($objectID,$t022,$t035) = split/\^/,$line;
+  if ($t022 eq "")
+    {
+    print NOIt "$line\n";
+    print NO "$line\n";
+    }
+  else
+    {
+    print LST022 "$t022\{022\}|\n";
+    }
+  }
+
+close(LST022);
+
+system("cat t022 |seltext -oCS 2>ckeys022.log >ckeys022");
+system("sed 's/\{022\}//' ckeys022 >ckeys022.cleaned");
+open(C022,"ckeys022.cleaned");
+#system("cat ckeys022.cleaned | selcatalog -iC -e008 -oeCS >eCS");
+system("cat ckeys022.cleaned | selcatalog -iC -e008 -oCSe 2>/dev/null >CSe");
+open(CSE,"CSe");
+open(C23,">ckeyISSNpos23");
+while($line=<CSE>)
+  {
+  chomp($line);
+  $line =~ s/\|/^/;
+  $line =~ s/\|/^/;
+  ($ckey,$issn,$t008) = split/\^/,$line;
+  $pos23 = substr($t008,23,1); #Repr
+  print C23 "$ckey|$issn|$pos23|\n";
+  }
+
+@ckeyTags = `cat ckeyISSNpos23 |selcatalog -iC -e022,337,940 -oCSe 2>/dev/null`;
+open(MALL, ">allMatches");
+open(MATCH,">match022a");
+open(CMATCH,">ckeyMatch022a");
+open(NOT_E,">notElectronic");
+open(DIFFID,">diffObjID");
+open(NO940,">noObjID");
+open(M_ISSN,">matchedISSN");
+
+foreach $line (@ckeyTags)
+  {
+  chomp($line);
+  ($ckey,$issnIt,$pos23,$issnSym,$t337,$t940) = split/\|/,$line;
+  ($issna,$issnx) = split/ /,$issnSym;
+  if ($issnIt eq $issna)
+    {
+    if ($pos23 eq "o" || $t337 =~ /computer/)
+      {
+      $t940 = "";
+      if ($t940 =~ /[0-9][0-9][0-9]/) #identifies an ObjID
+        {
+        print DIFFID "$ckey|$issna|$t940|\n";
+        print FIND_REC "$issnIt\n";
+        }
+      else
+        {
+        print MALL "$issna|$ckey|$pos23|$t337|$t940|\n"; 
+        #print CMATCH "$ckey\n";
+        print NO940 "$ckey|$issna|\n";
+        }
+      }
+    else
+      {
+      print NOT_E "$ckey|$issna|$pos23|$t337|\n";
+      print FIND_REC "$issnIt\n";
+      }
+    }
+  else
+    {
+    print FIND_REC "$issnIt\n";
+    }
+  }
+
+@sortedMatches = `sort -u allMatches`;
+push(@sortedMatches, "9|9|");
+open(MULT,">multiMatch022");
+open(SING,">singleMatch022");
+$firstLine = "y";
+$cnt = 0;
+foreach $line (@sortedMatches)
+  {
+  chomp($line);
+  ($issna,$ckey,$stuff) = split/\|/,$line;
+  $cnt++;
+  if ($firstLine eq "y")
+    {
+    $firstLine = "n";
+    }
+  elsif ($issna eq $issnPrev)
+    {
+    print MULT "$linePrev\n" if $cnt != 1;
+    print MULT "$line\n";
+    $cnt = 0;
+    print FIND_REC "$issna\n";
+    }
+  else
+    {
+    print SING "$ckeyPrev|$issnPrev|\n" if $cnt > 1;
+    print M_ISSN "$issnPrev\n" if $cnt > 1;
+    }
+  $linePrev = $line;
+  $issnPrev = $issna;
+  $ckeyPrev = $ckey;
+  }
+
+close(MULT);
+close(SING);
+close(M_ISSN);
+
+open(MATCH,"singleMatch022");
+open(MATCH856,">match856");
+while ($line=<MATCH>)
+  {
+  chomp($line);
+  ($ckey,$issn) = split/\|/,$line;
+  $rec = `grep $issn noMatch940`;
+  chomp($rec);
+  (@fields) = split/\^/,$rec;
+  print MATCH856 "$ckey|$fields[6]|\n";
+  print CMATCH "$ckey\n";
+  }
+close(MATCH856);
+
+### No Match In Symphony ###
+@recs0 = `grep "0 records" ckeys022.log`;
+
+foreach $line2 (@recs0)
+  {
+  chomp($line2);
+  $line2 =~ s/  0 records found for #.*: //;
+  $line2 =~ s/.T022.//;
+  $line2 =~ s/ //g;
+  print FIND_REC "$issn\n";
+  }
+
+close(FIND_REC);
+close(NO);
+system("sort -u noFindrec >noFindrecU");
+system("egrep -fnoFindrecU noMatch940 >> noMatch022");
+system("sort -u noMatch022 >noMatch022u");
+system("egrep -fmatchedISSN -v noMatch022u >noMatch022a");

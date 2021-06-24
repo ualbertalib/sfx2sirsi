@@ -1,0 +1,10 @@
+Symphony $<catalog:u> $<dump> 3.6.0 $<started_on> $<friday:u>, $<may:u> 7, 2021, 11:21 AM
+$(1222)
+$(3389)001.
+$(3364)
+$(3398)
+$(3394)
+  0 $<catalog> $(1303)
+  0 $<bib> $<MARC> $(1303)
+  0 $<item> $(1303)
+Symphony $<catalog:u> $<dump> $<finished_on> $<friday:u>, $<may:u> 7, 2021, 11:21 AM
