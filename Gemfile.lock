@@ -4,9 +4,11 @@ GEM
     glutton_ratelimit (0.2.0)
     marc (0.5.0)
     mime-types (1.23)
-    mini_portile2 (2.1.0)
-    nokogiri (1.6.8.1)
-      mini_portile2 (~> 2.1.0)
+    mini_portile2 (2.6.1)
+    nokogiri (1.12.5)
+      mini_portile2 (~> 2.6.1)
+      racc (~> 1.4)
+    racc (1.5.2)
     rake (10.1.0)
     rake-hooks (1.2.3)
       rake
@@ -19,7 +21,7 @@ PLATFORMS
 DEPENDENCIES
   glutton_ratelimit
   marc
-  nokogiri (~> 1.6.8)
+  nokogiri (~> 1.12.5)
   rake-hooks
   rest-client
 
