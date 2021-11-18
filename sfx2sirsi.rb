@@ -77,6 +77,7 @@ class Sfx2Sirsi
     end
 
     @sfx_records.each do |marc_record|
+      puts marc_record['090']['a'] if marc_record['090']
       puts "processing..."
       write_sirsi_record_to_file(marc_record, of)
       write_targets_to_file(marc_record, target_file)

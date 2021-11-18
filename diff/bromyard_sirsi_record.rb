@@ -36,7 +36,7 @@ class SirsiRecord
   end
 
   def open_url  
-    "https://resolver.library.ualberta.ca/resolver?ctx_enc=info%3Aofi%2Fenc%3AUTF-8&ctx_ver=Z39.88-2004&rfr_id=info%3Asid%2Fualberta.ca%3Aopac&rft.genre=journal&rft.object_id=#{object_id}&rft.issn=#{issn}&rft.eissn=#{issnElectronic}&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&url_ctx_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Actx&url_ver=Z39.88-2004"
+    "http://resolver.library.ualberta.ca/resolver?ctx_enc=info%3Aofi%2Fenc%3AUTF-8&ctx_ver=Z39.88-2004&rfr_id=info%3Asid%2Fualberta.ca%3Aopac&rft.genre=journal&rft.object_id=#{object_id}&rft.issn=#{issn}&rft.eissn=#{issnElectronic}&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&url_ctx_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Actx&url_ver=Z39.88-2004"
   end
 
   def related_objects?
@@ -109,7 +109,7 @@ class SirsiRecord
   end
 
   def clean_summaryHoldings
-      summaryHoldings == "Available" ? "Available" : pretty_print(merge(compile(summaryHoldings)))
+    summaryHoldings == "Available" ? "Available" : pretty_print(merge(compile(summaryHoldings)))
   end
 end
 

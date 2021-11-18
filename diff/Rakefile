@@ -13,22 +13,20 @@ desc "Fetch summary holdings data."
 task :fetch_dates do
   
   #`curl https://web.library.ualberta.ca/batchjobs/SFX/sfx2sirsi/batch.php > data/raw_sfx1`
-  `php /home/sfxruby/threshold/sfx2sirsi/batch.php > data/raw_sfx1 2> data/raw_sfx1.err`
-  `cp data/raw_sfx1 data/raw_sfx1.bak1`
-  filesize = File.new("data/raw_sfx1").size
-  if  filesize < 500  
-  STDERR.puts("Process aborted as the data/raw_sfx1 file size is too small. size: #{filesize}");
-  exit(false)
-  end  
+  #`php /home/sfxruby/threshold/sfx2sirsi/batch.php > data/raw_sfx1`
+  #filesize = File.new("data/raw_sfx1").size
+  #if  filesize < 500  
+  #STDERR.puts("Process aborted as the data/raw_sfx1 file size is too small. size: #{filesize}");
+  #exit(false)
+  #end  
+  
    
   `bundle exec ruby clean_summary_holdings.rb data/raw_sfx1`
-  `cp data/raw_sfx1 data/raw_sfx1.bak2`
 end
 
 desc "Fetch SFX data."
 task :fetch_sfx do
   `bundle exec ruby fetch_sfx_data.rb`
-  `cp data/raw_sfx1 data/raw_sfx1.bak3`
    time_code=Time.now.to_s[2..9].gsub("-","")
 
    sh "sed 's@<controlfield tag=\"008\">#{time_code}uuuuuuuuuxx-uu-|------u|----|eng-d<\/controlfield>@<controlfield tag=\"008\">101010uuuuuuuuuxx-uu-|------u|----|eng-d<\/controlfield>@g' data/raw_sfxdata.xml > data/sfxdata.xml"   
@@ -37,8 +35,7 @@ end
 desc "Full update."
 task :full_update => [:fetch_dates, :fetch_sfx] do
   run=Run.new(File.open(filename), File.open(summary_holdings), "full")
-  
-end 
+end
 
 desc "Nightly update."
 task :nightly_update => [:fetch_dates, :fetch_sfx] do
